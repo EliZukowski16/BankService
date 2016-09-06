@@ -3,12 +3,10 @@ package org.ssa.ironyard.BankService;
 
 import java.math.BigDecimal;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.ssa.ironyard.account.model.Account;
 
 
-@Service
+
 public interface BankService
 {
 
@@ -22,7 +20,7 @@ public interface BankService
      */
     
 
-    @Transactional
+ 
     Account withdraw(int account, BigDecimal amount) throws IllegalArgumentException;
 
     /**
@@ -32,7 +30,7 @@ public interface BankService
      * @return a loaded Account with its balance reflecting the deposit
      */
     
-    @Transactional
+
     Account deposit(int account, BigDecimal amount);
 
     /**
@@ -47,7 +45,7 @@ public interface BankService
      *             if the transfer is deemed invalid
      */
     
-    @Transactional
+
     boolean transfer(int from, int to, BigDecimal amount) throws IllegalArgumentException;
 
 }
