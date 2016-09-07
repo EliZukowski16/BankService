@@ -1,19 +1,19 @@
-package org.ssa.ironyard.BankService;
+package org.ssa.ironyard.bankservice;
 
 import java.math.BigDecimal;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.ssa.ironyard.account.dao.AccountDAOEager;
 import org.ssa.ironyard.account.model.Account;
+import org.ssa.ironyard.dao.AbstractDAO;
 
 @Service
 public class BankServiceImpl implements BankService
 {
 
-    AccountDAOEager accountDAO;
+    AbstractDAO<Account> accountDAO;
 
-    public BankServiceImpl(AccountDAOEager accountDAO)
+    public BankServiceImpl(AbstractDAO<Account> accountDAO)
     {
         this.accountDAO = accountDAO;
     }
@@ -47,10 +47,12 @@ public class BankServiceImpl implements BankService
     public Account deposit(int account, BigDecimal amount)
     {
         Account acc = accountDAO.read(account);
+        
+        Account copy = acc.clone();
 
-        acc.setBalance(acc.getBalance().add(amount));
+        copy.setBalance(acc.getBalance().add(amount));
 
-        return accountDAO.update(acc);
+        return accountDAO.update(copy);
     }
 
     @Override

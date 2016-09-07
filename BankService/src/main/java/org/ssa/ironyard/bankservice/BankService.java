@@ -1,4 +1,4 @@
-package org.ssa.ironyard.BankService;
+package org.ssa.ironyard.bankservice;
 
 
 import java.math.BigDecimal;

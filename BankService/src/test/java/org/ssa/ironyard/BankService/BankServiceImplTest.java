@@ -26,6 +26,8 @@ import org.junit.rules.ExpectedException;
 import org.ssa.ironyard.account.dao.AccountDAOEager;
 import org.ssa.ironyard.account.model.Account;
 import org.ssa.ironyard.account.model.Account.AccountType;
+import org.ssa.ironyard.bankservice.BankService;
+import org.ssa.ironyard.bankservice.BankServiceImpl;
 import org.ssa.ironyard.customer.dao.CustomerDAOImpl;
 import org.ssa.ironyard.customer.model.Customer;
 import org.ssa.ironyard.dao.AbstractDAO;
